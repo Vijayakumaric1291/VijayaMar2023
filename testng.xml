@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Amazon App Regression Test Suite" thread-count="2" parallel="tests" verbose="3">
+	<test name="Login Page Test">
+		<!--<parameter name="browser" value="chrome" /> -->
+		<!--<parameter name="url" value="http://www.amazon.com" /> -->
+		<classes>
+			<class name="com.qa.amazon.tests.LoginPageTest" />
+		</classes>
+	</test>
+	<test name="Home Page Test">
+		<!--<parameter name="browser" value="firefox" /> -->
+		<!-- <parameter name="url"
+			value="https://www.orangehrm.com/orangehrm-30-day-trial/" />-->
+		<classes>
+			<class name="com.qa.amazon.tests.HomePageTest" />
+		</classes>
+	</test>
+</suite>
