@@ -13,12 +13,13 @@ import com.qa.amazon.utils.ElementUtil;
 public class HomePage {
 	
 	ElementUtil elementUtil;
-	
+	private WebDriver driver;
 	private By logo = By.id("nav-logo");
 	private By headers = By.cssSelector("#nav-xshop a");
 	private By searchField = By.id("twotabsearchtextbox");
 	private By searchBtn = By.id("nav-search-submit-button");
 	public HomePage(WebDriver driver) {
+		this.driver = driver;
 		elementUtil = new ElementUtil(driver);
 	}
 
@@ -39,8 +40,9 @@ public class HomePage {
 		}
 		return sectionList;
 	}
-	public void doSearch(String productName) {
+	public SearchResultsPage doSearch(String productName) {
 		elementUtil.doSendKeys(searchField, productName);
 		elementUtil.doClick(searchBtn);
+		return new SearchResultsPage(driver);
 	}
 }

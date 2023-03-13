@@ -9,11 +9,13 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.qa.amazon.base.BaseTest;
+import com.qa.amazon.pages.SearchResultsPage;
 import com.qa.amazon.utils.Constants;
 import com.qa.amazon.utils.Error;
 
 public class HomePageTest extends BaseTest {
 
+	
 	@BeforeClass
 	public void homePageSetup() {
 		System.out.println("Before class is executing");
@@ -41,6 +43,7 @@ public class HomePageTest extends BaseTest {
 	}
 	@Test(priority = 4)
 	public void homePageSearchTest() {
-		homePage.doSearch("macbook");            
+		seachResultsPage = homePage.doSearch("macbook"); 
+		Assert.assertTrue(seachResultsPage.getSearchItemResultCount(2).equals(Constants.SEARCHRESULTSPAGE_ITEMS_COUNT));
 	}
 }

@@ -20,6 +20,7 @@ public class LoginPageTest extends BaseTest {
 //	}
 	@Test(priority = 3)
 	public void loginTest() {
-		loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
+		homePage = loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
+		Assert.assertEquals(homePage.getHomePageTitle(), Constants.HOMEPAGE_PAGE_TITLE);
 	}
 }
